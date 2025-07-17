@@ -28,13 +28,41 @@ def ingresos():
                 print("Error, este curso ya se ingresó")
             else:
                 break
-            curso = input("Ingrese el nombre del curso: ")
-            nota_tarea = input("Ingrese la nota de las tareas: ")
-            nota_parcial = input("Ingrese la nota del parcial: ")
-            nota_proyecto = input("Ingrese la nota del proyecto: ")
-        estudiantes[clave] = {
+            nota_tarea = int(input("Ingrese la nota de las tareas: "))
+            nota_parcial = int(input("Ingrese la nota del parcial: "))
+            nota_proyecto = int(input("Ingrese la nota del proyecto: "))
+        estudiantes[carnet] = {
             "nombre": nombre,
             "edad": edad,
-            "carrera": carrera
-
+            "carrera": carrera,
+                "curso": {
+                "codigo":clave,
+                "Nota:Tarea":nota_tarea,
+                "Nota:Parcial":nota_parcial,
+                "Nota:Proyecto":nota_proyecto
+            }
         }
+def listado():
+    print("---Listado de estudiantes---")
+    for carnet, datos in estudiantes.items():
+        print(f"Carnet: {carnet}")
+        print(f"Nombre: {datos['nombre']}")
+        print(f"Edad: {datos['edad']}")
+        print(f"Carrera: {datos['carrera']}")
+        print(f"Curso: {datos['curso']['codigo']}")
+        print(f"Curso: {datos['curso']['Nota:Tarea']}")
+        print(f"Curso: {datos['curso']['Nota:Parcial']}")
+        print(f"Curso: {datos['curso']['Nota:Proyecto']}")
+def main():
+    print("Bienvenido a la universidad")
+    while True:
+        print("=====MENÚ PRINCIPAL=====")
+        print("1. Registrar estudiantes")
+        print("2. Mostrar estudiantes y sus cursos")
+        print("3. Buscar estudiante por carnet")
+        print("4. Salir")
+        opcion = input("Seleccione una opcion: ")
+        if opcion == "1":
+            ingresos()
+if __name__ == "__main__":
+    main()
