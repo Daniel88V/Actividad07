@@ -59,6 +59,8 @@ while True:
             print(f"Nota de las tareas: {datos['curso']['NotaTarea']}")
             print(f"Nota del parcial: {datos['curso']['NotaParcial']}")
             print(f"Nota del proyecto: {datos['curso']['NotaProyecto']}")
+            for curso, calcular in datos["curso"].items():
+                promedio = (calcular["curso"]["NotaTarea"] + calcular["curso"]["NotaParcial"] + calcular["curso"]["NotaProyecto"])/3
     elif opcion == "2":
         print("\t Ingrese el carnet del estudiante que desea ver: ")
         alumno = input()
