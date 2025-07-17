@@ -59,6 +59,18 @@ while True:
             print(f"Nota de las tareas: {datos['curso']['NotaTarea']}")
             print(f"Nota del parcial: {datos['curso']['NotaParcial']}")
             print(f"Nota del proyecto: {datos['curso']['NotaProyecto']}")
-    if opcion == "2":
+    elif opcion == "2":
         print("\t Ingrese el carnet del estudiante que desea ver: ")
         alumno = input()
+        if alumno in estudiantes:
+            print(f"Nombre: {estudiantes[alumno]['nombre']}")
+            print(f"Edad: {estudiantes[alumno]['edad']}")
+            print(f"Carrera: {estudiantes[alumno]['carrera']}")
+            print(f"Curso: {estudiantes[alumno]['curso']['codigo']}")
+            print(f"Nota de las tareas: {estudiantes[alumno]['curso']['NotaTarea']}")
+            print(f"Nota del parcial: {estudiantes[alumno]['curso']['NotaParcial']}")
+            print(f"Nota del proyecto: {estudiantes[alumno]['curso']['NotaProyecto']}")
+        else:
+            print("No existe un estudiante con este carnet")
+    elif opcion == "3":
+        exit()
